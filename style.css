@@ -1,0 +1,151 @@
+:root {
+    --neon-accent: #f83a67; /* Pinkish-red accent matching the palette */
+    --bg-color: #1a1416;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* --- MEJORA DEL CONTENEDOR (Efecto de Iluminación) --- */
+.gamehub-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 5rem 2rem;
+    background: radial-gradient(circle at top, #3a2a30 0%, #1a1416 80%);
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--neon-accent);
+    background-color: rgba(248, 58, 103, 0.1);
+    border: 1px solid rgba(248, 58, 103, 0.3);
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.header h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.header h1 span {
+    color: var(--neon-accent);
+}
+
+.header p {
+    color: #b0a4a9;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* --- GRID RESPONSIVE --- */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* --- TARJETAS (PADDINGS Y SOMBRAS) --- */
+.game-card {
+    background-color: #271e21;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 380px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-accent);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(248, 58, 103, 0.2);
+}
+
+/* --- TIPOGRAFÍA INTERNA --- */
+.game-categories {
+    color: var(--neon-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.game-card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.game-description {
+    color: #b0a4a9;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- BOTÓN DE ACCIÓN --- */
+.btn-play {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    color: var(--neon-accent);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-play:hover {
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+/* --- MEDIA QUERIES PARA MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+    
+    .gamehub-container {
+        padding: 3rem 1rem;
+    }
+    
+    .game-card {
+        min-height: auto;
+        padding: 2rem 1.5rem;
+    }
+}
