@@ -1,5 +1,6 @@
 :root {
-    --neon-accent: #f83a67; /* Pinkish-red accent matching the palette */
+    --neon-accent: #f83a67;
+    /* Pinkish-red accent matching the palette */
     --bg-color: #1a1416;
 }
 
@@ -139,13 +140,93 @@ body {
         font-size: 2.5rem;
         letter-spacing: -1px;
     }
-    
+
     .gamehub-container {
         padding: 3rem 1rem;
     }
-    
+
     .game-card {
         min-height: auto;
         padding: 2rem 1.5rem;
     }
+}
+
+/* --- MODAL PARA EMBEBER JUEGOS --- */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: #1a1416;
+    border: 1px solid var(--neon-accent);
+    box-shadow: 0 0 30px rgba(248, 58, 103, 0.4);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1024px;
+    height: 80vh;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--neon-accent);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.close-btn:hover {
+    background: #ffffff;
+    color: var(--neon-accent);
+    transform: scale(1.1);
+}
+
+.iframe-container {
+    flex-grow: 1;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
